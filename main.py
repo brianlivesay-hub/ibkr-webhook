@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def webhook():
     try:
-        data = request.json
+        data = request.get_json(force=True)
         print("Received alert:", data)
 
         # Example: read the signal from TradingView
